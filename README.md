@@ -7,7 +7,7 @@ integrative Geneset-Embedded non-negative Matrix factorization (iGEM) is a non-n
 	- [2 Usage and Running Examples](#3-usage-and-running-example)
 
 ## 1 Dependencies
-The requirements.txt is located in [requirements.txt](https://github.com/li-lab-mcgill/iGEM/blob/main/requirements.txt)
+The requirement is located in [requirements.txt](https://github.com/li-lab-mcgill/iGEM/blob/main/requirements.txt)
 ```
 pip install -r requirements.txt
 ```
