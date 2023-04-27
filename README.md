@@ -28,4 +28,7 @@ processed_dataset.pkl](https://github.com/li-lab-mcgill/iGEM/blob/main/processed
 ### Tutorial
 * See [iGEM_demonstration_script.ipynb](https://github.com/li-lab-mcgill/iGEM/blob/main/iGEM_demonstration_script.ipynb)
 
-* We first load the necessary inofrmation from '''processed_dataset.pkl'''.
+* We first load the necessary inofrmation from
+'''
+processed_dataset.pkl
+'''.
