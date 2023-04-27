@@ -35,10 +35,16 @@ pip install -r requirements.txt
 model = iGEM(X1,X2,aa,ab,bb,params_dict)
 model.train()
 ```
-* For example, the derived matrices of model scores can be accessed as model.W, model.H1, model.H2, model.alpha1, for shared patient topic weight, feature score of omic X1, feature score of omic X2, and geneset score of omic 1, respectively.
+* For example, the derived matrices of model scores can be accessed as model.W, model.H1, model.H2, model.alpha1, for shared patient topic weight, feature score of omic X1, feature score of omic X2, and geneset score of omic X1, respectively.
 * If needed, the helper function gene_topic can be used to help visualize the derived feature matrices, with normalized and transposed feature matrix as input, followed by mode (mRNA, methylation, or geneset), save name, and the top number of features to display, as shown below
 ```
 gene_topic(normalize_sum(model.H1.t().detach()).numpy(), 'mRNA', 'test', 10)
 ```
 
-* In addition, we have also included a test section, where the model is performed with a simulated dataset with fixed model weight. The section is to demonstrate the ability of iGEM to reconstruct the geneset score alpha given fixed patient weight score W and geneset information rho. The section Fixed weight visualization displays the reconstructed matrix compared to the original, as well as the top correlation results between the two matrices.
+* In addition, we have also included a test section, where the model is performed tested with fixed model weight on a randomly-generated dataset. The section is to demonstrate the ability of iGEM to reconstruct the geneset score (alpha) given fixed patient weight score (w) and geneset information (rho). In this section, we refer the known inputs as 'source', and the model-generated matrices as 'simulated'. The model loading and hyperparameter setting is similar to the previous section, except tha we will use iGEM_fixed_w here as shown below:
+
+```
+model = iGEM_fixed_w(X1,X2,aa,ab,bb,params_dict,fixed_model_w)
+model.train()
+```
+* The section Fixed weight visualization displays the reconstructed matrix compared to the original, as well as the top correlation results between the two matrices.
