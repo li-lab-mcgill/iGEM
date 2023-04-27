@@ -31,14 +31,14 @@ pip install -r requirements.txt
 * In this demonstration, we assign two variables X1 and X2 as the model input, where X1 represents the gene expression and X2 represents DNA methylation.
 * We initialize a dictionary params_dict that includes the geneset information and various hyperparameters of the model. The available hyperparameters include number of omic (omic_num), usage of geneset (use_alpha), alternative loss function (use_poisson), number of topics (k), number of iterations (max_iter), tolerence threshold (tol), and penalty coefficients (pi_xr, pi_xc, xc_h2_coef, xc_alpha1_coef). If the features within or between omics have known relationship, their interaction can be taken into consideration (not used in the demonstration). The interaction relationship in a two-omic setting includes features within 1st omic (aa), features within 2nd omic (bb), and features between the two omics (ab), along with the penalty coefficients for the respective relationship (pi_aa, pi_bb, pi_ab).
 * The model input matrices and the parameter diectionary are passed to the model, and then the training process can be performed as below
-'''
+```
 model = iGEM(X1,X2,aa,ab,bb,params_dict)
 model.train()
-'''
+```
 * For example, the derived matrices of model scores can be accessed as model.W, model.H1, model.H2, model.alpha1, for shared patient topic weight, feature score of omic X1, feature score of omic X2, and geneset score of omic 1, respectively.
 * If needed, the helper function gene_topic can be used to help visualize the derived feature matrices, with normalized and transposed feature matrix as input, followed by mode (mRNA, methylation, or geneset), save name, and the top number of features to display, as shown below
-'''
+```
 gene_topic(normalize_sum(model.H1.t().detach()).numpy(), 'mRNA', 'test', 10)
-'''
+```
 
 * In addition, we have also included a test section, where the model is performed with a simulated dataset with fixed model weight. The section is to demonstrate the ability of iGEM to reconstruct the geneset score alpha given fixed patient weight score W and geneset information rho. The section Fixed weight visualization displays the reconstructed matrix compared to the original, as well as the top correlation results between the two matrices.
